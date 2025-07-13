@@ -8,13 +8,13 @@ let imageCount = 0;
 const image = document.querySelector(".image");
 
 function changeImage() {
-    if (imageCount >= imageArray.length - 1) {
+    if (imageCount >= imageArray.length) {
         imageCount = 0;
     }
     image.src = imageArray[imageCount];
     imageCount++;
 }
 
-setInterval(changeImage, 5000);
+setInterval(changeImage, 1000);
 
 document.addEventListener("DOMContentLoaded", changeImage);
