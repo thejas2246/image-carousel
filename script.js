@@ -14,12 +14,23 @@ const image = document.querySelector(".image");
 const previousImage = document.querySelector(".previous-image");
 const nextImage = document.querySelector(".next-image");
 
+let myTimer = setInterval(changeImage, 5000);
+
+function goToImage(event) {
+    let val = event.target.getAttribute("data-index");
+    imageCount = Number(val);
+    changeImage();
+    resetTimer();
+}
+
 function showImageDots(imageCount) {
     const dotContainer = document.querySelector(".dot-container");
     dotContainer.textContent = "";
     for (let i = 0; i < imageArray.length; i++) {
         const dots = document.createElement("div");
         dots.setAttribute("class", "image-dots");
+        dots.setAttribute("data-index", i);
+        dots.addEventListener("click", goToImage);
         dotContainer.appendChild(dots);
         if (imageCount === i) {
             dots.classList.add("active-image");
@@ -28,6 +39,7 @@ function showImageDots(imageCount) {
 }
 
 function changeImage() {
+    console.log(imageCount);
     if (imageCount >= imageArray.length) {
         imageCount = 0;
     }
@@ -46,7 +58,9 @@ function changeImage() {
     showImageDots(imageCount);
     imageCount++;
 }
-
-setInterval(changeImage, 5000);
+function resetTimer() {
+    clearInterval(myTimer);
+    myTimer = setInterval(changeImage, 5000);
+}
 
 document.addEventListener("DOMContentLoaded", changeImage);
