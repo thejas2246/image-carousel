@@ -8,7 +8,7 @@ let imageCount = 0;
 const image = document.querySelector(".image");
 
 function changeImage() {
-    if (imageCount >= 3) {
+    if (imageCount >= imageArray.length - 1) {
         imageCount = 0;
     }
     image.src = imageArray[imageCount];
