@@ -10,10 +10,42 @@ body{
     background-color: green;
     width: 500px;
     height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 img{
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.previous-image,.next-image{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    border-radius: 20px;
+}
+.previous-image{
+    bottom: 10%;
+    right: 30%;
+}
+.next-image{
+    bottom: 10%;
+    left: 30%;
+}
+.image-dots{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.dot-container{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 60px;
+}
+.active-image{
+    background-color: black;
 }
