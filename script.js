@@ -15,6 +15,6 @@ function changeImage() {
     imageCount++;
 }
 
-setInterval(changeImage, 1000);
+setInterval(changeImage, 5000);
 
 document.addEventListener("DOMContentLoaded", changeImage);
