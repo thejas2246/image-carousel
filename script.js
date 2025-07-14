@@ -16,6 +16,23 @@ const nextImage = document.querySelector(".next-image");
 
 let myTimer = setInterval(changeImage, 5000);
 
+function leftArrow() {
+    imageCount = imageCount - 2;
+    if (imageCount < 0) {
+        imageCount =
+            ((imageArray.length - 1 + imageCount) % (imageArray.length - 1)) +
+            1;
+    }
+    changeImage();
+    resetTimer();
+}
+
+function rightArrow() {
+    imageCount = imageCount % imageArray.length;
+    changeImage();
+    resetTimer();
+}
+
 function goToImage(event) {
     let val = event.target.getAttribute("data-index");
     imageCount = Number(val);
@@ -63,3 +80,8 @@ function resetTimer() {
 }
 
 document.addEventListener("DOMContentLoaded", changeImage);
+const leftArrowIcon = document.querySelector(".chevron-left-icon");
+const rightArrowIcon = document.querySelector(".chevron-right-icon");
+
+leftArrowIcon.addEventListener("click", leftArrow);
+rightArrowIcon.addEventListener("click", rightArrow);
