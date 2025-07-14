@@ -39,7 +39,6 @@ function showImageDots(imageCount) {
 }
 
 function changeImage() {
-    console.log(imageCount);
     if (imageCount >= imageArray.length) {
         imageCount = 0;
     }
